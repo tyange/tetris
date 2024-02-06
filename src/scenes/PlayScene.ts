@@ -10,6 +10,12 @@ export class PlayScene extends Scene {
   }
 
   create() {
+    this.createBorderTileMap();
+
+    // this.physics.add.collider(rectangle, borderLayer!);
+  }
+
+  createBorderTileMap() {
     const map = this.make.tilemap({ key: "board" });
     const tileset = map.addTilesetImage("Tilemap", "tiles");
 
@@ -17,7 +23,6 @@ export class PlayScene extends Scene {
 
     borderLayer?.setCollisionByProperty({ collides: true });
 
-    // this.physics.add.collider(rectangle, borderLayer!);
     borderLayer?.setCollisionBetween(27, 27);
   }
 }

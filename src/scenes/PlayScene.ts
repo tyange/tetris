@@ -11,8 +11,7 @@ export class PlayScene extends Scene {
 
   create() {
     this.createBorderTileMap();
-
-    // this.physics.add.collider(rectangle, borderLayer!);
+    this.createTetromino();
   }
 
   createBorderTileMap() {
@@ -25,4 +24,23 @@ export class PlayScene extends Scene {
 
     borderLayer?.setCollisionBetween(27, 27);
   }
+
+  createTetromino() {
+    // 블록을 생성하고,
+    const rectShape = [
+      [1, 1],
+      [1, 1],
+    ];
+
+    rectShape.forEach((row, rowIndex) => {
+      for (let i = 0; i < row.length; i++) {
+        console.log(row[rowIndex]);
+        this.add
+          .rectangle(20 * i, (rowIndex + 1) * 20, 20, 20, 0xff0000)
+          .setOrigin(-5, -5);
+      }
+    });
+  }
+
+  // TODO: 블록을 board(배열)에 위치 시킴.
 }
